@@ -1,0 +1,33 @@
+{
+  "name": "discord-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VirtRaider/Discord-bot.git"
+  },
+  "author": "Michael",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VirtRaider/Discord-bot/issues"
+  },
+  "homepage": "https://github.com/VirtRaider/Discord-bot#readme",
+  "dependencies": {
+    "@discordjs/opus": "^0.3.2",
+    "ascii-art": "^1.5.1",
+    "discord.js": "^12.3.1",
+    "ffmpeg-static": "^4.2.7",
+    "sequelize": "^6.3.5",
+    "sqlite3": "^4.2.0",
+    "yt-search": "^2.3.0",
+    "ytdl-core": "^4.0.5",
+    "ytdl-core-discord": "^1.2.4"
+  },
+  "devDependencies": {
+    "eslint": "^7.9.0"
+  }
+}
