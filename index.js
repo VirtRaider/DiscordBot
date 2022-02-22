@@ -35,7 +35,7 @@ client.on('message', message => {
 
 	let foundInText = false;
 	for(const i in words) {
-		if(message.content.toLowerCase().includes(words[i])) foundInText = true;
+		//if(message.content.toLowerCase().includes(words[i])) foundInText = true;
 	}
 	if(foundInText) {
 		message.delete();

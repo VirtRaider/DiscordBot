@@ -23,10 +23,10 @@ module.exports = {
 		let info = await ytdl.getInfo(args[0]);
 
 		let data = ops.active.get(message.guild.id) || {};
-		if(data.connection) {
+		if (data.connection) {
 			data.connection = await message.member.voice.channel.join();
 		}
-		if(!data.connection) data.connection = await message.member.voice.channel.join();
+		if (!data.connection) data.connection = await message.member.voice.channel.join();
 		if (!data.queue) data.queue = [];
 		data.guildID = message.guild.id;
 
@@ -38,25 +38,25 @@ module.exports = {
 		if (!data.dispatcher) {
 			play();
 		}
-		else{
+		else {
 			message.channel.send(`Added to queue: ${info.videoDetails.title}`);
 		}
 
 		ops.active.set(message.guild.id, data);
 
 		async function play() {
-			data.dispatcher = await data.connection.play(ytdl(data.queue[0].url, { filter: 'audioonly' }));
+			data.dispatcher = await data.connection.play(ytdl(data.queue[0].url, { filter: 'audioonly', type: 'opus' }));
 			data.dispatcher.guildID = data.guildID;
 			ops.active.set(message.guild.id, data);
 			message.reply(`Now playing ${data.queue[0].songTitle}`);
 
-			data.dispatcher.once('finish', function() {
+			data.dispatcher.once('finish', function () {
 				finish();
 			});
 		}
 		function finish() {
 			data.queue.shift();
-			if(data.queue.length > 0) {
+			if (data.queue.length > 0) {
 				ops.active.set(message.guild.id, data);
 				play();
 			}
@@ -69,4 +69,3 @@ module.exports = {
 		}
 	},
 };
-
